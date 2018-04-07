@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
@@ -11,8 +12,10 @@ public class GameController : MonoBehaviour {
 	public float startWait;
 	public float waveWait;
 
-	public GUIText scoreText;
-	public GUIText restartText;
+	public GameObject restartButton;
+
+	public Text scoreText;
+	public Text restartText;
 	public GUIText gameOverText;
 	private int score;
 
@@ -24,6 +27,7 @@ public class GameController : MonoBehaviour {
 		gameOver = false;
 		restart = false;
 		restartText.text = "Space Shooter by Sachin";
+		restartButton.SetActive (false);
 		gameOverText.text = "";
 		score = 0;
 		UpdateScore ();
@@ -31,11 +35,11 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
-		if (restart) {
-			if (Input.GetButton("Fire1")) {
-				Application.LoadLevel (Application.loadedLevel);
-			}
- 		}
+//		if (restart) {
+//			if (Input.GetButton("Fire1")) {
+//				Application.LoadLevel (Application.loadedLevel);
+//			}
+// 		}
 	}
 	
 	IEnumerator SpawnWaves () {
@@ -51,8 +55,9 @@ public class GameController : MonoBehaviour {
 			yield return new WaitForSeconds (waveWait);
 
 			if (gameOver) {
-				restartText.text = "Tap to Restart";
-				restart = true;
+				restartButton.SetActive (true);
+				//restartText.text = "Tap to Restart";
+				//restart = true;
 				break;
 			}
 		}
@@ -66,6 +71,10 @@ public class GameController : MonoBehaviour {
 	public void GameOver() {
 		gameOverText.text = "Game Over";
 		gameOver = true;
+	}
+
+	public void RestartGame() {
+		Application.LoadLevel (Application.loadedLevel);
 	}
 
 	void UpdateScore () {
