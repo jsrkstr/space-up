@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 	public float fireRate;
 	private float nextFire = 0.0f;
 	private AudioSource audioSource;
+	private float rotationY = 0.0f;
 
 	private Quaternion calibrationQuaternion;
 
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		audioSource = GetComponent<AudioSource >();
-
+		rotationY = rb.rotation.y;
 		CalibrateAccelerometer ();
 	}
 
@@ -62,23 +63,51 @@ public class PlayerController : MonoBehaviour {
 //		float moveHorizontal = Input.GetAxis ("Horizontal");
 //		float moveVertical = Input.GetAxis ("Vertical");
 
-		Vector3 accelerationRaw = Input.acceleration;
-		Vector3 accelerationFixed = FixAcceleration (accelerationRaw);
-		float moveHorizontal = accelerationFixed.x;
-		float moveVertical = accelerationFixed.y;
+//		Vector3 accelerationRaw = Input.acceleration;
+//		Vector3 accelerationFixed = FixAcceleration (accelerationRaw);
+//		float moveHorizontal = accelerationFixed.x;
+//		float moveVertical = accelerationFixed.y;
 
-//		Vector2 direction = touchPad.GetDirection ();
-//		float moveHorizontal = direction.x;
-//		float moveVertical = direction.y;
+		Vector2 direction = touchPad.GetDirection ();
+		float moveHorizontal = direction.x;
+		float moveVertical = direction.y;
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
-		rb.velocity = movement * speed;
-		rb.position = new Vector3 (
-			Mathf.Clamp (rb.position.x, boundry.xMin, boundry.xMax),
+//		rb.velocity = movement * speed;
+//		float forwardForce = transform.forward * moveVertical * speed;
+//		float rightForce = transform.right * moveHorizontal * speed;
+//		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+//		Vector3 force = transform.forward * moveVertical;
+//		Vector3 force = transform.forward * moveVertical;
+		rb.AddForce(movement * 10);
+
+
+		rb.velocity = new Vector3 (
+			Mathf.Clamp (rb.velocity.x, -5, 5),
 			0.0f,
-			Mathf.Clamp (rb.position.z, boundry.zMin, boundry.zMax)
+			Mathf.Clamp (rb.velocity.z, -5, 5)
 		);
 
-		rb.rotation = Quaternion.Euler (0.0f, 0.0f, rb.velocity.x * -tilt);
+
+
+		float positionX = rb.position.x;
+		positionX = positionX < boundry.xMin ? boundry.xMax : positionX;
+		positionX = positionX > boundry.xMax ? boundry.xMin : positionX;
+
+		float positionZ = rb.position.z;
+		positionZ = positionZ < boundry.zMin ? boundry.zMax : positionZ;
+		positionZ = positionZ > boundry.zMax ? boundry.zMin : positionZ;
+
+		rb.position = new Vector3 (
+			positionX,
+			0.0f,
+			positionZ
+		);
+
+	
+		Quaternion rotation = Quaternion.LookRotation (rb.velocity);
+
+//		rb.rotation = Quaternion.Euler (0.0f, rotation.y, rb.velocity.x * -tilt);
+		rb.rotation = rotation;
 	}
 }
