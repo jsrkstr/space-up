@@ -10,7 +10,8 @@ public class Boundry {
 public class PlayerController : MonoBehaviour {
 
 	private Rigidbody rb;
-	public float speed;
+	public float acceleration;
+	public float maxSpeed;
 	public float tilt;
 	public Boundry boundry;
 	public SimpleTouchPad touchPad;
@@ -18,6 +19,8 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject shot;
 	public Transform shotSpawn;
+
+	public Joystick joystick;
 
 	public float fireRate;
 	private float nextFire = 0.0f;
@@ -68,9 +71,15 @@ public class PlayerController : MonoBehaviour {
 //		float moveHorizontal = accelerationFixed.x;
 //		float moveVertical = accelerationFixed.y;
 
-		Vector2 direction = touchPad.GetDirection ();
-		float moveHorizontal = direction.x;
-		float moveVertical = direction.y;
+//		Vector3 moveVector = (transform.right * joystick.Horizontal + transform.forward * joystick.Vertical).normalized;
+//		transform.Translate(moveVector * moveSpeed * Time.deltaTime);
+
+//		Vector2 direction = touchPad.GetDirection ();
+//		float moveHorizontal = direction.x;
+//		float moveVertical = direction.y;
+
+		float moveHorizontal = joystick.Horizontal;
+		float moveVertical = joystick.Vertical;
 
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 //		rb.velocity = movement * speed;
@@ -79,13 +88,13 @@ public class PlayerController : MonoBehaviour {
 //		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 //		Vector3 force = transform.forward * moveVertical;
 //		Vector3 force = transform.forward * moveVertical;
-		rb.AddForce(movement * 10);
+		rb.AddForce(movement * acceleration);
 
 
 		rb.velocity = new Vector3 (
-			Mathf.Clamp (rb.velocity.x, -5, 5),
+			Mathf.Clamp (rb.velocity.x, -maxSpeed, maxSpeed),
 			0.0f,
-			Mathf.Clamp (rb.velocity.z, -5, 5)
+			Mathf.Clamp (rb.velocity.z, -maxSpeed, maxSpeed)
 		);
 
 
