@@ -1,9 +1,10 @@
 Android
 PlayerPath?
-/Users/jsrockstar/Desktop/Space Shooter/Builds/Space_Shooter_Android_v0.2.apk
+/Users/jsrockstar/Desktop/Space Shooter/Builds/Space_Shooter_Android_v0.3.apk
 SceneListBegin?
 Assets/_Scenes/Main.unity
 SceneListEnd?
+a103ef39709a6c39ff0e24f81396e8e5 Assembly-CSharp.dll:.WeaponController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -119,10 +120,12 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 ca60dfd40465205ae76c6d3e60a7e88a Assembly-CSharp.dll:.Done_EvasiveManeuver
+e6620c373ab7ec2b45024da89745a65e Assembly-CSharp.dll:.BGScroller
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
-c2c6d44f6a4f84129ec64efdd0df28ea Assembly-CSharp.dll:.GameController
-75efe4d53764e249c9e62bc5e6d32a04 Assembly-CSharp.dll:.PlayerController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SimpleTouchAreaButton
+ea348d3a0a640e90e2c4de68b7bf33b4 Assembly-CSharp.dll:.GameController
+4b26bc498ab7dd1567d29abbf3e140ea Assembly-CSharp.dll:.PlayerController
 c37d1c326e418bcde90e97e4d0eb74c9 Assembly-CSharp.dll:.Done_DestroyByContact
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -158,13 +161,12 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
+78df6e77063563c8c0c87b3ec1c0226e Assembly-CSharp.dll:.SimpleTouchPad
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 85ae836fe3814eb4d4896d863841de8c Assembly-CSharp.dll:.Done_PlayerController
 4c4e5bbdfb8b8f4d80c5ad7176b30d43 Assembly-CSharp.dll:.Done_RandomRotator
 c37d1c326e418bcde90e97e4d0eb74c9 Assembly-CSharp.dll:.DestroyByContact
 e6620c373ab7ec2b45024da89745a65e Assembly-CSharp.dll:.Done_BGScroller
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.Mover
-a0dcef889bcbbdb0a398c4e8e4b8e14b Assembly-CSharp.dll:.Done_GameController
-e6620c373ab7ec2b45024da89745a65e Assembly-CSharp.dll:.BGScroller
-a103ef39709a6c39ff0e24f81396e8e5 Assembly-CSharp.dll:.WeaponController
 84562b237a50f7fe09c1961d9cf2a67e Assembly-CSharp.dll:.EvasiveManeuver
+a0dcef889bcbbdb0a398c4e8e4b8e14b Assembly-CSharp.dll:.Done_GameController

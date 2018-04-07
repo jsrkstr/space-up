@@ -15,9 +15,10 @@ public class GameController : MonoBehaviour {
 	public GameObject restartButton;
 
 	public Text scoreText;
-	public Text restartText;
+	public Text highscoreText;
 	public GUIText gameOverText;
 	private int score;
+	private int highscore;
 
 	private bool gameOver;
 	private bool restart;
@@ -26,10 +27,10 @@ public class GameController : MonoBehaviour {
 	void Start () {
 		gameOver = false;
 		restart = false;
-		restartText.text = "Space Shooter by Sachin";
 		restartButton.SetActive (false);
 		gameOverText.text = "";
 		score = 0;
+		highscore = PlayerPrefs.GetInt ("highscore", highscore);
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
 	}
@@ -79,5 +80,10 @@ public class GameController : MonoBehaviour {
 
 	void UpdateScore () {
 		scoreText.text = "Score " + score;
+		if (score > highscore) {
+			highscore = score;
+			PlayerPrefs.SetInt ("highscore", highscore);
+		}
+		highscoreText.text = "Highscore " + highscore;
 	}
 }
