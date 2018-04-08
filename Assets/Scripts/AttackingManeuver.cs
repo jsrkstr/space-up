@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AttackingManeuver : MonoBehaviour {
 
@@ -9,14 +8,12 @@ public class AttackingManeuver : MonoBehaviour {
 	public float maneuverWait;
 	public float acceleration;
 	public float tilt;
-	public Text debugText;
 
 	private Rigidbody rb;
 	private GameObject player;
 	private Vector3 movement;
 
 	void Start () {
-		debugText = FindObjectOfType<Text> ();
 		rb = GetComponent<Rigidbody> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		if (player != null) {
@@ -55,7 +52,6 @@ public class AttackingManeuver : MonoBehaviour {
 
 		// Tilt the ship based on torque angle
 		rb.rotation = Quaternion.Euler (0.0f, 0.0f, tiltAngle);
-		debugText.text = "Angle - " + tiltAngle;
 	}
 
 }

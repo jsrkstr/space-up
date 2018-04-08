@@ -6,7 +6,6 @@ public class Mover2D : MonoBehaviour {
 
 	private Rigidbody rb;
 	public float maxSpeed;
-	public float tilt;
 	public Boundry boundry;
 
 	// Use this for initialization
@@ -40,11 +39,10 @@ public class Mover2D : MonoBehaviour {
 		// Make the ship face towards the direction of movement
 		if (rb.velocity.magnitude != 0.0f) { // fixes warning
 			Quaternion newRotation = Quaternion.LookRotation (rb.velocity);
-//			newRotation *= Quaternion.Euler (0, 0, transform.right. * -tilt);
+			// keep z rotations as same, since it is set by other scripts
 			newRotation *= Quaternion.Euler (0, 0, rb.rotation.eulerAngles.z);
 			rb.rotation = newRotation;
 		}
 
-//		rb.rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
 	}
 }
