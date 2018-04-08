@@ -63,6 +63,7 @@
      <Compile Include="Assets\_Complete-Game\Scripts\Done_WeaponController.cs" />
      <Compile Include="Assets\_NewScripts\SimpleTouchAreaButton.cs" />
      <Compile Include="Assets\_NewScripts\SimpleTouchPad.cs" />
+     <Compile Include="Assets\Scripts\AttackingManeuver.cs" />
      <Compile Include="Assets\Scripts\BGScroller.cs" />
      <Compile Include="Assets\Scripts\DestroyByBoundary.cs" />
      <Compile Include="Assets\Scripts\DestroyByContact.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Scripts\EvasiveManeuver.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
+     <Compile Include="Assets\Scripts\Mover2D.cs" />
      <Compile Include="Assets\Scripts\ParticleRotation.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\RandomRotator.cs" />

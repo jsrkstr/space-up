@@ -16,22 +16,23 @@ public class GameController : MonoBehaviour {
 
 	public Text scoreText;
 	public Text highscoreText;
+	public Text healthText;
 	public GUIText gameOverText;
 	private int score;
 	private int highscore;
+	private int healthValue = 100;
 
 	private bool gameOver;
-	private bool restart;
 
 	// Use this for initialization
 	void Start () {
 		gameOver = false;
-		restart = false;
 		restartButton.SetActive (false);
 		gameOverText.text = "";
 		score = 0;
 		highscore = PlayerPrefs.GetInt ("highscore", highscore);
 		UpdateScore ();
+		UpdateHealth ();
 		StartCoroutine (SpawnWaves ());
 	}
 
@@ -44,29 +45,46 @@ public class GameController : MonoBehaviour {
 	}
 	
 	IEnumerator SpawnWaves () {
+		Vector3 spawnPosition;
+		Quaternion spawnRotation;
 		yield return new WaitForSeconds (startWait);
+
 		while (true) {
 			for (int i = 0; i < hazardCount; i++) {
 				GameObject hazard = hazards [Random.Range (0, hazards.Length)];
-				Vector3 spawnPosition = new Vector3 (Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-				Quaternion spawnRotation = Quaternion.identity;
+				spawnPosition = new Vector3 (Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+				spawnRotation = Quaternion.identity;
+
+				if (hazard.name == "Attacking Enemy Ship") {
+					spawnPosition = new Vector3 (0, spawnValues.y, -spawnValues.z);
+					spawnRotation = Quaternion.Euler(0, 180, 0);
+				}
+
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
+
+				if (gameOver) {
+					yield return new WaitForSeconds (2);
+					restartButton.SetActive (true);
+					break;
+				}
 			}
 			yield return new WaitForSeconds (waveWait);
-
-			if (gameOver) {
-				restartButton.SetActive (true);
-				//restartText.text = "Tap to Restart";
-				//restart = true;
-				break;
-			}
 		}
 	}
 
 	public void AddScore (int newScoreValue) {
 		score += newScoreValue;
 		UpdateScore ();
+	}
+
+	public void HitPlayer(int hitValue) {
+		healthValue -= hitValue;
+		healthValue = Mathf.Max (0, healthValue);
+		if (healthValue == 0) {
+			GameOver ();
+		}
+		UpdateHealth ();
 	}
 
 	public void GameOver() {
@@ -85,5 +103,13 @@ public class GameController : MonoBehaviour {
 			PlayerPrefs.SetInt ("highscore", highscore);
 		}
 		highscoreText.text = "Highscore " + highscore;
+	}
+
+	public int GetHealth() {
+		return healthValue;
+	}
+
+	void UpdateHealth() {
+		healthText.text = "Health " + healthValue;
 	}
 }
