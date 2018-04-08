@@ -1,9 +1,10 @@
 Android
 PlayerPath?
-/Users/jsrockstar/Desktop/Space Shooter/Builds/Space_Shooter_Android_v0.3.apk
+/Users/jsrockstar/Desktop/Space Up/Builds/Space_Up_Android_v0.1.apk
 SceneListBegin?
 Assets/_Scenes/Main.unity
 SceneListEnd?
+5e23029b7574e33b588880b072e31837 Assembly-CSharp.dll:.PlayerExample
 a103ef39709a6c39ff0e24f81396e8e5 Assembly-CSharp.dll:.WeaponController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -18,6 +19,8 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 c55f73f8f1562b6824faf4063dd4b0fd Assembly-CSharp.dll:.Done_DestroyByTime
+fd2c4262b5bb8e1bd7697031fe4ba2c6 Assembly-CSharp.dll:.Joystick
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ParticleRotation
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -50,6 +53,7 @@ c63db43c730fa2cbb8ca07de15898cb6 UnityEngine.UI.dll:UnityEngine.UI.Toggle
 f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+675ce514948d2753eee36e7e47419725 Assembly-CSharp.dll:.Mover2D
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -110,6 +114,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+fd2c4262b5bb8e1bd7697031fe4ba2c6 Assembly-CSharp.dll:.FixedJoystick
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 4c4e5bbdfb8b8f4d80c5ad7176b30d43 Assembly-CSharp.dll:.RandomRotator
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
@@ -120,12 +125,13 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 ca60dfd40465205ae76c6d3e60a7e88a Assembly-CSharp.dll:.Done_EvasiveManeuver
+fd2c4262b5bb8e1bd7697031fe4ba2c6 Assembly-CSharp.dll:.FloatingJoystick
 e6620c373ab7ec2b45024da89745a65e Assembly-CSharp.dll:.BGScroller
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SimpleTouchAreaButton
-ea348d3a0a640e90e2c4de68b7bf33b4 Assembly-CSharp.dll:.GameController
-4b26bc498ab7dd1567d29abbf3e140ea Assembly-CSharp.dll:.PlayerController
+d571b237536ea5817d18265289a9fd23 Assembly-CSharp.dll:.GameController
+38061f4aa43cc77b73022bb93c4bccd2 Assembly-CSharp.dll:.PlayerController
 c37d1c326e418bcde90e97e4d0eb74c9 Assembly-CSharp.dll:.Done_DestroyByContact
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -149,10 +155,12 @@ a103ef39709a6c39ff0e24f81396e8e5 Assembly-CSharp.dll:.Done_WeaponController
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+72e4e93be37b3ebb1941d0f317f8454d Assembly-CSharp.dll:.AttackingManeuver
 9e0ef5bf862444b5dc48b5a99554ce7c UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 67a5f2c97205d2e41a8ed7c7ce898f6e UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+c5524a106b8e79ff1f58d0a595f49212 Assembly-CSharp.dll:.VariableJoystick
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Done_DestroyByBoundary
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DestroyByBoundary
 25365ec66501498d52d11616553a9368 Assembly-CSharp.dll:.Readme
@@ -165,7 +173,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 85ae836fe3814eb4d4896d863841de8c Assembly-CSharp.dll:.Done_PlayerController
 4c4e5bbdfb8b8f4d80c5ad7176b30d43 Assembly-CSharp.dll:.Done_RandomRotator
-c37d1c326e418bcde90e97e4d0eb74c9 Assembly-CSharp.dll:.DestroyByContact
+73e667cf22104187d3e88af4d81ae0fe Assembly-CSharp.dll:.DestroyByContact
 e6620c373ab7ec2b45024da89745a65e Assembly-CSharp.dll:.Done_BGScroller
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.Mover
 84562b237a50f7fe09c1961d9cf2a67e Assembly-CSharp.dll:.EvasiveManeuver
